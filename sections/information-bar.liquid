@@ -1,0 +1,60 @@
+<div class="bg-black w-full flex justify-center items-center min-h-12	">
+  <div class="w-[1152px] flex justify-between">
+    <div class="flex gap-5">
+      <a href="{{ section.settings.facebook_url }}" target="_blank">{% render 'facebook-icon' %}</a>
+      <a href="{{ section.settings.facebook_url }}" target="_blank">{% render 'instagram-icon' %}</a>
+      <a href="{{ section.settings.facebook_url }}" target="_blank">{% render 'twitter-icon' %}</a>
+    </div>
+    <div class=" flex-grow">
+      <p class=" text-center text-white">{{ section.settings.information_txt }}</p>
+    </div>
+    <div>
+      <a href="#" class=" flex gap-1 items-center text-white underline">
+        contactez-nous <span>{% render 'mail-icon' %}</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% comment %} ---------------------------------------SCHEMA--------------------------------------- {% endcomment %}
+{% schema %}
+{
+  "name": "Barre d'information",
+  "settings": [
+    {
+      "type": "text",
+      "id": "facebook_url",
+      "label": "Lien Facebook",
+      "default": "#",
+      "info": "Changer le lien vers le facebook de la marque."
+    },
+    {
+      "type": "file",
+      "id": "facebook_svg",
+      "label": "Icône Facebook personnalisée",
+      "info": "Téléchargez une icône SVG pour Facebook."
+    },
+    {
+      "type": "text",
+      "id": "instagram_url",
+      "label": "Lien Instagram",
+      "default": "#",
+      "info": "Changer le lien vers la page Instagram de la marque."
+    },
+    {
+      "type": "text",
+      "id": "twitter_url",
+      "label": "Lien Twitter",
+      "default": "#",
+      "info": "Changer le lien vers la page Twitter de la marque."
+    },
+    {
+      "type": "text",
+      "id": "information_txt",
+      "label": "texte informatif",
+      "default": "Bienvenue sur notre site 👋",
+      "info": "Ajouter ou Modifier le text centrale"
+    }
+  ]
+}
+{% endschema %}
