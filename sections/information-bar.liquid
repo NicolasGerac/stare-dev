@@ -1,9 +1,42 @@
-<div class="bg-black w-full flex justify-center items-center min-h-12	">
+<div class="bg-black w-full flex justify-center items-center h-12	">
   <div class="w-[1152px] flex justify-between">
     <div class="flex gap-5">
-      <a href="{{ section.settings.facebook_url }}" target="_blank">{% render 'facebook-icon' %}</a>
-      <a href="{{ section.settings.facebook_url }}" target="_blank">{% render 'instagram-icon' %}</a>
-      <a href="{{ section.settings.facebook_url }}" target="_blank">{% render 'twitter-icon' %}</a>
+      <a href="{{ section.settings.first_social_url }}" target="_blank">
+        {% if section.settings.first_social_img != blank %}
+          <img
+            width="24"
+            height="24"
+            src="{{ section.settings.first_social_img | image_url: width: 24 }}"
+            alt=""
+          >
+        {% else %}
+          {% render 'facebook-icon' %}
+        {% endif %}
+      </a>
+      <a href="{{ section.settings.second_social_url }}" target="_blank">
+        {% if section.settings.second_social_img != blank %}
+          <img
+            width="24"
+            height="24"
+            src="{{ section.settings.second_social_img |  image_url: width:24 }}"
+            alt=""
+          >
+        {% else %}
+          {% render 'instagram-icon' %}
+        {% endif %}
+      </a>
+      <a href="{{ section.settings.third_social_url }}" target="_blank">
+        {% if section.settings.third_social_img != blank %}
+          <img
+            width="24"
+            height="24"
+            src="{{ section.settings.third_social_img |  image_url: width:24 }}"
+            alt=""
+          >
+        {% else %}
+          {% render 'twitter-icon' %}
+        {% endif %}
+      </a>
     </div>
     <div class=" flex-grow">
       <p class=" text-center text-white">{{ section.settings.information_txt }}</p>
@@ -23,35 +56,50 @@
   "settings": [
     {
       "type": "text",
-      "id": "facebook_url",
-      "label": "Lien Facebook",
+      "id": "first_social_url",
+      "label": "Lien du premier réseau social :",
       "default": "#",
-      "info": "Changer le lien vers le facebook de la marque."
+      "info": "Changer le lien vers le premier réseau social."
     },
     {
-      "type": "file",
-      "id": "facebook_svg",
-      "label": "Icône Facebook personnalisée",
-      "info": "Téléchargez une icône SVG pour Facebook."
+      "type": "image_picker",
+      "id": "first_social_img",
+      "label": "Image du premier réseau social :",
+      "info": "Téléchargez une image pour le premier réseau social."
     },
+
     {
       "type": "text",
-      "id": "instagram_url",
-      "label": "Lien Instagram",
+      "id": "second_social_url",
+      "label": "Lien du second réseau social :",
       "default": "#",
-      "info": "Changer le lien vers la page Instagram de la marque."
+      "info": "Changer le lien vers la deuxièle réseau social."
     },
     {
+      "type": "image_picker",
+      "id": "second_social_img",
+      "label": "Image du deuxième réseau social :",
+      "info": "Téléchargez une image pour le premier réseau social."
+    },
+
+    {
       "type": "text",
-      "id": "twitter_url",
-      "label": "Lien Twitter",
+      "id": "third_social_url",
+      "label": "Lien du troisième réseau social :",
       "default": "#",
       "info": "Changer le lien vers la page Twitter de la marque."
     },
     {
+      "type": "image_picker",
+      "id": "third_social_img",
+      "label": "Image du troisième réseau social :",
+      "info": "Téléchargez une image pour le troisième réseau social."
+    },
+
+    {
       "type": "text",
       "id": "information_txt",
-      "label": "texte informatif",
+      "label": "Texte centrale :",
       "default": "Bienvenue sur notre site 👋",
       "info": "Ajouter ou Modifier le text centrale"
     }

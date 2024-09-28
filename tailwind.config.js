@@ -8,7 +8,14 @@ module.exports = {
         "./templates/*.liquid",
     ],
     theme: {
-        extend: {},
+        extend: {
+            width: {
+                "one-third": "calc(100% / 3)",
+            },
+            height: {
+                "hero-video": "calc(100vh - 120px)",
+            },
+        },
     },
     plugins: [],
 };
